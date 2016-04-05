@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var User = require('../app/model/user.js');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 var config = require('../config/database.js');
 var passport	= require('passport');
 
