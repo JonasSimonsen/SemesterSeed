@@ -28,6 +28,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api', function(req, res, next) {
+  passport.authenticate('jwt', {session: false}, function(err, user, info) {
+    if (err) { res.status(403).json({mesage:"Token could not be authenticated",fullError: err}) }
+    if (user) { return next(); }
+    return res.status(403).json({mesage: "Token could not be authenticated", fullError: info});
+  })(req, res, next);
+});
+
 app.use('/api', restApi);
 
 // catch 404 and forward to error handler
