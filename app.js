@@ -12,6 +12,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var restApi = require('./routes/api');
 
+// require('../config/database'); // ---------- For OPENSHIFT deployment!! ---------- Does NOT work!! ---------- //
+
 var app = express();
 
 // view engine setup

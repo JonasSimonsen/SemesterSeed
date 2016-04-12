@@ -15,6 +15,18 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+
+// ---------- For OPENSHIFT deployment!! ---------- Does NOT work!! ---------- //
+
+/*var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000);
+console.log(port);
+app.set('port', port);
+var ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+app.set('ip',ip );
+console.log(app.get("ip")); */
+
+// ---------- For OPENSHIFT deployment!! ---------- Does NOT work!! ---------- //
+
 /**
  * Create HTTP server.
  */
